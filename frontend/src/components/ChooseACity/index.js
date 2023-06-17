@@ -3,57 +3,74 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import cityRandomData from "../../dummyData/cityRandom";
 
-function ChooseACity({updateCity, city}) {
-
+function ChooseACity({ updateCity, city }) {
     const [errorMessage, setErrorMessage] = React.useState("");
     const navigate = useNavigate();
 
     function handleClickSubmit(event) {
-      
         if (city === "") {
-          setErrorMessage("Please enter a location");
-          return;
+            setErrorMessage("Please enter a location");
+            return;
         }
-        const isValidCity = cityRandomData.some((data) => data.city.toLowerCase() === city.toLowerCase());
+        const isValidCity = cityRandomData.some(
+            (data) => data.city.toLowerCase() === city.toLowerCase()
+        );
         if (!isValidCity) {
-          setErrorMessage("Is not a valid location or location is currently not supported. Please select another location");
-          return;
+            setErrorMessage(
+                "Is not a valid location or location is currently not supported. Please select another location"
+            );
+            return;
         }
+        getCity();
         navigate("/home");
-      }
+    }
 
-      function enterKeyPressed(event) {
-        if(event.keyCode === 13){
+    //this function is required to get the data from the backend, it currently takes in the city variable from the state and sends it to the backend and then the backend returns
+    //the data back and it is consoled out.
+    async function getCity() {
+        const response = await fetch(`http://localhost:4000/?city=${city}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+
+    function enterKeyPressed(event) {
+        if (event.keyCode === 13) {
             handleClickSubmit(event);
         }
-      }
+    }
 
     function handleInputChange(event) {
         const inputValue = event.target.value;
-        const capitalizedValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        const capitalizedValue =
+            inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
         updateCity(capitalizedValue);
-      }
+    }
 
-    function handleClickRandomiser(event){
+    function handleClickRandomiser(event) {
         console.log("clicked");
-        let randomCity = cityRandomData[Math.floor(Math.random() * cityRandomData.length)];
+        let randomCity =
+            cityRandomData[Math.floor(Math.random() * cityRandomData.length)];
         updateCity(randomCity.city);
         navigate("/home");
     }
 
     function handleErrorClick() {
         setErrorMessage("");
-      }
+    }
 
     return (
         <div className="overlay">
-            {errorMessage && 
-            <div className="modal-overlay">
-                <div 
-                    className="error">{errorMessage} 
-                    <button  onClick={handleErrorClick}>Okay!</button>
+            {errorMessage && (
+                <div className="modal-overlay">
+                    <div className="error">
+                        {errorMessage}
+                        <button onClick={handleErrorClick}>Okay!</button>
+                    </div>
                 </div>
-            </div>}
+            )}
             <div className="header">
                 <div className="header__title">
                     <h1>Neighbourhood Nomad</h1>
@@ -75,15 +92,23 @@ function ChooseACity({updateCity, city}) {
                     onChange={handleInputChange}
                     onKeyDown={enterKeyPressed}
                 />
-    
-                    <button className="userInput__btn--randomiser" onClick={handleClickRandomiser}>
-                        I'm feeling adventurous!
-                    </button>  
+
+                <button
+                    className="userInput__btn--randomiser"
+                    onClick={handleClickRandomiser}
+                >
+                    I'm feeling adventurous!
+                </button>
             </div>
 
             <div className="main">
                 <div className="main__animated--globe">globe</div>
-                    <button className="main__btn--submit" onClick={handleClickSubmit}>EXPLORE CITY</button>
+                <button
+                    className="main__btn--submit"
+                    onClick={handleClickSubmit}
+                >
+                    EXPLORE CITY
+                </button>
             </div>
         </div>
     );
