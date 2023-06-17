@@ -26,7 +26,8 @@ function ChooseACity({ updateCity, city }) {
     }
 
     //this function is required to get the data from the backend, it currently takes in the city variable from the state and sends it to the backend and then the backend returns
-    //the data back and it is consoled out.
+    //the city name back and it is consoled out.
+    //its set up so the city name is passed as a parameter in the url like so "?city=${city}"
     async function getCity() {
         const response = await fetch(`http://localhost:4000/?city=${city}`, {
             method: "GET",
