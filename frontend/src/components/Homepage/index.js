@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar";
 import NavBar from "../NavBar";
 import Header from "../Header/index";
 import dummy from "../images/profile_photo/dummy.jpg";
-import listItemData from "../../dummyData/listItemData";
+import { getlistItemData } from "../../dummyData/listItemData";
 import ListItem from "../ListItem";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -21,6 +21,9 @@ function Homepage({ city, updateSearchFilter }) {
         setSearchFilter(searchFilter);
     };
 
+    const listItemData = getlistItemData();
+    console.log(listItemData);
+
     return (
         <div className="overlay">
             <Header
@@ -33,15 +36,14 @@ function Homepage({ city, updateSearchFilter }) {
                 <SearchBar
                     sx={{ zIndex: 0 }}
                     handleSearchFilterChange={handleSearchFilterChange}
-                    
                 />
             </div>
             <Box className="main__listItems" sx={{ flexGrow: 1 }}>
                 <Grid className="main__listItems--grid" container spacing={2}>
-                    {listItemData.map((item, index) => (
-                        <Grid item xs={6} sm={4} md={3} key={index}>
+                    {listItemData.map((item) => (
+                        <Grid item xs={6} sm={4} md={3} key={item.id}>
                             <Link to="/guide/overview">
-                                <ListItem title={item.title} />
+                                <ListItem title={item.guide_name} />
                             </Link>
                         </Grid>
                     ))}
@@ -63,3 +65,5 @@ function Homepage({ city, updateSearchFilter }) {
 }
 
 export default Homepage;
+
+//get the data array out of getcity() function and then pass it to the homepage component as a prop and then map through it in the homepage component to display the data

@@ -2,12 +2,13 @@ import React from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import cityRandomData from "../../dummyData/cityRandom";
+import { setlistItemData } from "../../dummyData/listItemData";
 
 function ChooseACity({ updateCity, city }) {
     const [errorMessage, setErrorMessage] = React.useState("");
     const navigate = useNavigate();
 
-    function handleClickSubmit(event) {
+    async function handleClickSubmit(event) {
         if (city === "") {
             setErrorMessage("Please enter a location");
             return;
@@ -21,20 +22,24 @@ function ChooseACity({ updateCity, city }) {
             );
             return;
         }
-        getCity();
+        await getCity(city);
+
         navigate("/home");
     }
 
     //this function is required to get the data from the backend, it currently takes in the city variable from the state and sends it to the backend and then the backend returns
     //the city name back and it is consoled out.
     //its set up so the city name is passed as a parameter in the url like so "?city=${city}"
-    async function getCity() {
+
+    async function getCity(city) {
         const response = await fetch(`http://localhost:4000/?city=${city}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
+        // console.log(data.payload[0]);
+        setlistItemData(data.payload[0]);
     }
 
     function enterKeyPressed(event) {
