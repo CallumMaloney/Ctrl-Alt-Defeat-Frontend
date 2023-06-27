@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
@@ -11,8 +11,6 @@ function CreateAGuide({ imageUrl, altText, token }) {
   const buttonStyle = {
     color: "black",
   };
-
-  const [guideImage, setGuideImage] = useState(""); // State to store the image source
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false); // Form submission success flag
   const [formData, setFormData] = useState({ // Form data in the structure of the schema defined in the backend
@@ -53,8 +51,8 @@ function CreateAGuide({ imageUrl, altText, token }) {
     
     try {
       // Make POST request to /users endpoint and pass form data state as the body
-      const response = await postGuide('http://localhost:4000/guide', formData);
-      console.log(response);
+      const res = await postGuide('http://localhost:4000/guide', formData);
+      console.log(res);
       // Set submission success flag
       setSubmissionSuccess(true);
       // Reset form data
@@ -96,11 +94,11 @@ function CreateAGuide({ imageUrl, altText, token }) {
     }
   };
   
-  const addHighlight = () => {
-    const newHighlights = [...highlights, inputValue];
-    setHighlights(newHighlights);
-    setFormData({ ...formData, highlights: newHighlights });
-  };
+  // const addHighlight = () => {
+  //   const newHighlights = [...highlights, inputValue];
+  //   setHighlights(newHighlights);
+  //   setFormData({ ...formData, highlights: newHighlights });
+  // };
   
     
     const deleteHighlight = (index) => {
@@ -138,14 +136,14 @@ function CreateAGuide({ imageUrl, altText, token }) {
     }
   };
 
-  const handlePictureChange = (event) => {
-    const file = event.target.files[0]; // Get the selected file
-    const reader = new FileReader();
+  // const handlePictureChange = (event) => {
+  //   const file = event.target.files[0]; // Get the selected file
+  //   const reader = new FileReader();
 
-    reader.onload = (e) => {
-      setGuideImage(e.target.result); // Set the selected image as the profile picture
-    };
-  };
+  //   reader.onload = (e) => {
+  //     setGuideImage(e.target.result); // Set the selected image as the profile picture
+  //   };
+  // };
 
   return (
     <div className="createAGuide_Overlay">
