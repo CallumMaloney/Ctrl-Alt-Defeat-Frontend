@@ -1,4 +1,4 @@
-.profileOverlay{
+.profileOverlay {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,8 +6,7 @@
     height: 100%;
 }
 
-.profileHeader{
- 
+.profileHeader {
     height: 4.2em;
     width: 95%;
     display: flex;
@@ -15,25 +14,21 @@
     align-items: center;
 }
 
-.profileHeader__btn--back{
-
+.profileHeader__btn--back {
     height: 1.5em;
     margin-right: 7.6em;
     font-size: 2em;
-
 }
-.profileHeader__btn--addGuide{
-
+.profileHeader__btn--addGuide {
     height: 1.5em;
     font-size: 2em;
-
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
-.profile{
+.profile {
     width: 95%;
     height: 14.5em;
     display: flex;
@@ -42,46 +37,45 @@ button:hover{
     align-items: center;
 }
 
-.profile__title--profileName{
+.profile__title--profileName {
     width: 95%;
     height: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.profile__img--profileImg{
+.profile__img--profileImg {
     width: 95%;
     height: 9em;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: .5em;
+    margin-top: 0.5em;
 }
-.profile__btn--editProfile{
+/* .profile__btn--editProfile {
     width: 95%;
     height: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.profile__img--profileImg>img{
+.profile__img--profileImg > img {
     width: 9.5em;
     height: 9em;
     border-radius: 50%;
 }
-.profile__btn--editProfile button{
-
-    width:8em;
+.profile__btn--editProfile button {
+    width: 8em;
     height: 2.2em;
     border-radius: 10px;
     border: 1px solid transparent;
-    background-color: #cecece;
-    color:white;
-    font-size: .9em;
-  
+    background-color: #0002ff;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 30px;
 }
-.profile__nav{
+/* .profile__nav {
     width: 95%;
     height: 3.5em;
     display: flex;
@@ -89,45 +83,47 @@ button:hover{
     align-items: center;
     box-shadow: 0px 24px 3px -23px black;
     margin-bottom: 1em;
-}
+} */
 
-.profile__nav--about>button{
+/* .profile__nav--about > button {
     border: 1px solid transparent;
     background-color: transparent;
     font-size: 20px;
     margin-top: 1em;
 }
-.profile__nav--interests>button{
+.profile__nav--interests > button {
     border: 1px solid transparent;
     background-color: transparent;
     font-size: 20px;
-    margin-top: .9em;
-}
-.profile__nav--guides>button{
+    margin-top: 0.9em;
+} */
+/* .profile__nav--guides > button {
     border: 1px solid transparent;
     background-color: transparent;
     font-size: 20px;
     margin-top: 1em;
-}
-.profile__info{
+} */
+
+/* .profile__info {
     width: 90%;
     height: 95%;
     padding: 0px 8px;
     background-color: #cecece;
     color: white;
     border-radius: 10px;
-    text-align: left;
+    text-align: left; */
     /* margin-bottom: 1.3em; */
-}
-.profile__info>h4{
+/* } */
+
+/* .profile__info > h4 {
     display: inline;
     position: relative;
-    top: .6em;
-    margin-bottom: .4em;
+    top: 0.6em;
+    margin-bottom: 0.4em;
     text-decoration: underline;
-}
+} */
 
-.profile__footer{
+/* .profile__footer {
     bottom: 0;
 
     height: 4.5em;
@@ -136,9 +132,59 @@ button:hover{
     flex-direction: row;
     justify-content: center;
     background-color: white;
+} */
 
+.middleNavBar {
+    background-color: #0002ff;
+    width: 80%;
+    height: 2em;
+    border-radius: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+/* .middleNavBar__btn--overview {
+    margin-left: 0.4em;
+}
+.middleNavBar__btn--reviews {
+    margin-right: 0.4em;
+}
+.middleNavBar button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 1em;
+} */
+
+.active button {
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: product-sans-bold;
 }
 
-
-
-
+/* .selectedPageHeading {
+    width: 90%;
+    height: 4%;
+    margin-top: 0.7em;
+    display: flex;
+    align-items: center;
+}
+.selectedPageHeading__title {
+    font-size: 11px;
+    text-decoration: underline;
+    color: #747475;
+}
+.guideDesc {
+    width: 90%;
+    height: 40%;
+    border-radius: 10px;
+    background-color: #cecfd178;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.guideDesc--info {
+    height: 95%;
+    width: 95%;
+} */

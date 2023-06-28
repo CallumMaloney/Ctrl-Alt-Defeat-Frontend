@@ -4,7 +4,7 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import "./styles.css";
 import profileImg from "../../assets/profileImg.png";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 
 function ProfilePage() {
     const iconStyle = {
@@ -15,24 +15,24 @@ function ProfilePage() {
         backgroundColor: "white",
         border: "none",
     };
-
-    
+    const navigate = useNavigate();
     const handleClick = () => {
         navigate(-1, { replace: false });
     };
-        const navigate = useNavigate();
 
     return (
         <div className="profileOverlay">
             <div className="profileHeader">
                 <div className="profileHeader__btn--back">
-                    <button
-                        variant="text"
-                        style={buttonStyle}
-                        onClick={handleClick}
-                    >
-                        <KeyboardBackspaceIcon style={iconStyle} onClick={handleClick} />
-                    </button>
+                    <NavLink to="/guide" activeClassName="active">
+                        <button
+                            variant="text"
+                            style={buttonStyle}
+                            onClick={handleClick}
+                        >
+                            <KeyboardBackspaceIcon style={iconStyle} />
+                        </button>
+                    </NavLink>
                 </div>
 
                 <div className="profileHeader__btn--addGuide">
@@ -55,37 +55,38 @@ function ProfilePage() {
                     </Link>
                 </div>
             </div>
-            <div className="profile__nav">
-                <div className="profile__nav--about">
-                    <button>About</button>
+
+            <div className="middleNavBar">
+                <div className="middleNavBar__btn--overview">
+                    <NavLink
+                        to={`/ProfilePage/about`}
+                        activeClassName="active"
+                        className="guideActive"
+                    >
+                        <button>About</button>
+                    </NavLink>
                 </div>
-                <div className="profile__nav--interests">
-                    <button>Interests</button>
+                <div className="middleNavBar__btn--experience">
+                    <NavLink
+                        to={`/ProfilePage/interests`}
+                        activeClassName="active"
+                        className="guideActive"
+                    >
+                        <button>Interests</button>
+                    </NavLink>
                 </div>
-                <div className="profile__nav--guides">
-                    <button>Guides</button>
+                <div className="middleNavBar__btn--reviews">
+                    <NavLink
+                        to={`/ProfilePage/guides`}
+                        activeClassName="guideactive"
+                        className="guideActive"
+                    >
+                        <button>Guides</button>
+                    </NavLink>
                 </div>
             </div>
-            <div className="profile__info">
-                <h4>About Me</h4>
-                <p>
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer tincidunt, nisl eget vestibulum aliquam, nunc sapien
-                    ultricies tortor, ac aliquam eros nunc vel nisl. Sed vitae
-                    nisl eget nunc aliquam ultricies. Sed vitae nisl eget nunc
-                    aliquam ultricies. Vestibulum ante ipsum primis in faucibus
-                    orci luctus et ultrices posuere cubilia curae; Donec vitae
-                    nisl eget nunc aliquam ultricies.
-                </p>
-                <p>
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer tincidunt, nisl eget vestibulum aliquam, nunc sapien
-                    ultricies
-                </p>
-            </div>
-            <div className="profile__footer">
-                <NavBar />
-            </div>
+            <Outlet />
+            <NavBar />
         </div>
     );
 }

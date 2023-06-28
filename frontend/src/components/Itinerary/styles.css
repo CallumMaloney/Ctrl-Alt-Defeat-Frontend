@@ -13,7 +13,7 @@
     margin-top: 1em;
 }
 
-.your_trips{
+.your_trips {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,7 +36,7 @@
     margin-right: 5em;
 }
 
-@media (max-width: 490px){
+@media (max-width: 490px) {
     .listItem {
         width: 8em;
         height: 8em;
@@ -44,35 +44,30 @@
         justify-content: space-between;
         margin: 0px;
         padding: 0px;
-      }
-  
-      .your_trips{
-          display: flex;
-          flex-direction: row;
-          margin-top: 0.5em;
-      }
-    
-      .newPlanner {
-        
-      }
-    
-      .main {
-          height: 100%;
-          width: 100%;
-      }
-  
-      .main__listItems {
-          /* background-color: green; */
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-left: 1em;
-          margin-right: 2em;
-      }
+    }
 
+    .your_trips {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.5em;
+    }
+
+    .main {
+        height: 100%;
+        width: 100%;
+    }
+
+    .main__listItems {
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 1em;
+        margin-right: 2em;
+    }
 }
 
-@media (max-width: 650px){
+@media (max-width: 650px) {
     .listItem {
         width: 9em;
         height: 9em;
@@ -80,53 +75,44 @@
         justify-content: space-between;
         margin: 0px;
         padding: 0px;
-      }
-  
-      .your_trips{
-          display: flex;
-          flex-direction: row;
-          margin-top: 0.5em;
-      }
-    
-      .newPlanner {
-        
-      }
-    
-      .main {
-          height: 100%;
-          width: 100%;
-      }
-  
-      .main__listItems {
-          /* background-color: green; */
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-left: 1em;
-          margin-right: 2em;
-      }
+    }
 
+    .your_trips {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.5em;
+    }
+
+    .main {
+        height: 100%;
+        width: 100%;
+    }
+
+    .main__listItems {
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 1em;
+        margin-right: 2em;
+    }
 }
 
 @media (min-width: 769px) {
     .newPlanner_btn {
-      width: 12em;
-      height: 12em;
-      flex-direction: row;
-      justify-content: space-between;
-      margin: 0px;
-      padding: 0px;
+        width: 12em;
+        height: 12em;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0px;
+        padding: 0px;
     }
 
-    .your_trips{
+    .your_trips {
         display: flex;
         flex-direction: row;
     }
-  
-    .newPlanner {
-      
-    }
-  
+
     .main {
         height: 100%;
         width: 100%;
@@ -140,45 +126,44 @@
         margin-left: 5em;
         margin-right: 5em;
     }
-  }
+}
 
-  @media (min-width: 967px) {
+@media (min-width: 967px) {
     .listItem {
-      width: 15em;
-      height: 15em;
-      flex-direction: row;
-      justify-content: space-between;
+        width: 15em;
+        height: 15em;
+        flex-direction: row;
+        justify-content: space-between;
     }
-  
-    .listItem__icons {
-      margin-top: 0;
-    }
-  
-    .listItem__title {
-      margin-bottom: 0;
-    }
-  }
 
-  @media (min-width: 1164px) {
-    .listItem {
-      width: 18em;
-      height: 18em;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
     .listItem__icons {
-      margin-top: 0;
+        margin-top: 0;
     }
-  
+
     .listItem__title {
-      margin-bottom: 0;
+        margin-bottom: 0;
     }
-  }
+}
+
+@media (min-width: 1164px) {
+    .listItem {
+        width: 18em;
+        height: 18em;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .listItem__icons {
+        margin-top: 0;
+    }
+
+    .listItem__title {
+        margin-bottom: 0;
+    }
+}
 .main__listItems--grid {
     /* background-color: pink; */
     display: flex;
 
     justify-content: space-around;
 }
-

@@ -13,20 +13,26 @@ import { useTheme } from "@mui/material/styles";
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function SearchBar({ setFilterClicked, filterClicked, handleCheckboxChange, chosenCity, selectedActivityTypes }) {
+export default function SearchBar({
+    setFilterClicked,
+    filterClicked,
+    handleCheckboxChange,
+    chosenCity,
+    selectedActivityTypes,
+}) {
     const theme = useTheme();
-
-
-   
 
     function handleClick() {
         console.log("clicked");
         setFilterClicked(!filterClicked);
     }
 
-    const filteredCity = selectedActivityTypes.length > 0
-    ? chosenCity.filter((item) => selectedActivityTypes.includes(item.activityType))
-    : chosenCity;
+    const filteredCity =
+        selectedActivityTypes.length > 0
+            ? chosenCity.filter((item) =>
+                  selectedActivityTypes.includes(item.activityType)
+              )
+            : chosenCity;
 
     console.log(selectedActivityTypes);
     console.log(filteredCity);
@@ -34,10 +40,11 @@ export default function SearchBar({ setFilterClicked, filterClicked, handleCheck
         <Paper
             component="form"
             sx={{
+                zIndex: 1,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                position: "relative",
+                position: "fixed",
                 top: 60,
                 width: "100%",
                 px: 2,
