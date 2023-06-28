@@ -13,23 +13,39 @@ import { useTheme } from "@mui/material/styles";
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function SearchBar({ setFilterClicked, filterClicked, handleCheckboxChange, chosenCity, selectedActivityTypes }) {
-    const theme = useTheme();
+export default function SearchBar({
+    setFilterClicked,
+    filterClicked,
+    chosenCity,
+    selectedActivityTypes,
+}) 
 
-
-   
+    {const theme = useTheme();
 
     function handleClick() {
-        console.log("clicked");
         setFilterClicked(!filterClicked);
     }
 
-    const filteredCity = selectedActivityTypes.length > 0
-    ? chosenCity.filter((item) => selectedActivityTypes.includes(item.activityType))
-    : chosenCity;
+    const filteredCity =
+        selectedActivityTypes.length > 0
+            ? chosenCity.filter((item) =>
+                  selectedActivityTypes.includes(item.activityType)
+              )
+            : chosenCity;
 
-    console.log(selectedActivityTypes);
-    console.log(filteredCity);
+    const handleSearchBarChange = (event) => {console.log(event);}
+        
+        // // const { value, checked } = event;
+    //     if (checked) {
+    //         setSelectedTitle((prevTypes) => [...prevTypes, value]);
+    //     } else {
+    //         setSelectedTitle((prevTypes) =>
+    //             prevTypes.filter((type) => type !== value)
+    //         );
+    //     }
+    //     console.log(selectedTitle);
+    // };
+
     return (
         <Paper
             component="form"
@@ -91,7 +107,7 @@ export default function SearchBar({ setFilterClicked, filterClicked, handleCheck
                             checkedIcon={checkedIcon}
                             style={{ marginRight: 8 }}
                             checked={selected}
-                            onChange={handleCheckboxChange}
+                            onChange={(event) => handleSearchBarChange(event)}
                         />
                         {option.title}
                     </li>
